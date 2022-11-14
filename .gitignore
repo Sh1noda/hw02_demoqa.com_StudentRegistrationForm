@@ -1,0 +1,5 @@
+\.fradle
+\.idea
+\build
+*.log
+*.class
