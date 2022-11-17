@@ -1,12 +1,9 @@
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.commands.UploadFile;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -15,8 +12,7 @@ public class StudentForm {
     static void beforeall() {
         Configuration.browser = "chrome";
         Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "1920x1080";
-
+        Configuration.browserSize = "1024x768";
     }
 
     @Test
@@ -64,12 +60,18 @@ public class StudentForm {
         //Submit button
         $(byText("Submit")).shouldBe(visible).click();
 
-
-
-
-
-
-
+        //Final Check
+        $("[class=modal-content]").shouldHave(text("Thanks for submitting the form"));
+        $("[class=modal-content]").shouldHave(text("Student Name"), text("Пёс Шарик"));
+        $("[class=modal-content]").shouldHave(text("Student Email"), text("DogsHeart@google.com"));
+        $("[class=modal-content]").shouldHave(text("Gender"), text("Other"));
+        $("[class=modal-content]").shouldHave(text("Mobile"), text("1234567890"));
+        $("[class=modal-content]").shouldHave(text("Date of Birth"), text("29 February,1988"));
+        $("[class=modal-content]").shouldHave(text("Subjects"), text("Computer Science"));
+        $("[class=modal-content]").shouldHave(text("Hobbies"), text("Sports, Reading, Music"));
+        $("[class=modal-content]").shouldHave(text("Picture"), text("sharik.jpeg"));
+        $("[class=modal-content]").shouldHave(text("Address"), text("Moscow, Prechistenka str, 24/1"));
+        $("[class=modal-content]").shouldHave(text("State and City"), text("Haryana Panipat"));
     }
 }
 
