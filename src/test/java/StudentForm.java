@@ -1,8 +1,6 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
-
 import java.io.File;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -12,7 +10,7 @@ public class StudentForm {
     static void beforeall() {
         Configuration.browser = "chrome";
         Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "1024x768";
+        Configuration.browserSize = "1920x1080";
     }
 
     @Test
@@ -58,7 +56,7 @@ public class StudentForm {
         $("[id=react-select-4-input]").setValue("Panipat").pressTab();
 
         //Submit button
-        $(byText("Submit")).shouldBe(visible).click();
+        $("[id=submit]").click();
 
         //Final Check
         $("[class=modal-content]").shouldHave(text("Thanks for submitting the form"));
