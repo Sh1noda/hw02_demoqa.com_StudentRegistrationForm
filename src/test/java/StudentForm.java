@@ -26,7 +26,7 @@ public class StudentForm {
         $("#userEmail").setValue("DogsHeart@google.com");
 
         //Gender
-        $(byText("Other")).shouldBe(visible).click();
+        $(byText("Other")).click();
 
         //Mobile
         $("#userNumber").setValue("1234567890");
@@ -41,9 +41,9 @@ public class StudentForm {
         $("#subjectsInput").setValue("Computer").pressTab();
 
         //Hobbies
-        $(byText("Sports")).shouldBe(visible).click();
-        $(byText("Reading")).shouldBe(visible).click();
-        $(byText("Music")).shouldBe(visible).click();
+        $(byText("Sports")).click();
+        $(byText("Reading")).click();
+        $(byText("Music")).click();
 
         //Picture
         $("#uploadPicture").uploadFile(new File("src/test/resources/sharik.jpeg"));
